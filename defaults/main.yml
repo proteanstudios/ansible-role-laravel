@@ -1,11 +1,4 @@
 ---
-
-# User password
-password: $EOL3Q50Yt8DbriTsqNZpWGVCSSibUVJIaS1BnCadVknfN8
-
-# Public key to copy to remote server
-public_key: ~/.ssh/id_rsa.pub
-
 # git access key place
 git_access_key_path_on_server: "~/.ssh/git_access_key" 
 
@@ -56,4 +49,3 @@ copy_node_modules: true
 
 # Copy vendor folder from latest release.
 copy_vendor: true
-
