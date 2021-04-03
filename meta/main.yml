@@ -6,4 +6,3 @@ galaxy_info:
   description: Install the laravel project
   company: Pros co.,ltd
   min_ansible_version: 2.9 
-  platforms: all 
