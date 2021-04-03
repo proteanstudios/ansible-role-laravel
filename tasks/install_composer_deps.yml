@@ -1,0 +1,14 @@
+---
+
+- name: Copy vendor
+  shell: cp -r "{{ latest_release.path }}/vendor" "{{ new_release_dir }}/vendor"
+  when: copy_vendor and latest_release is defined
+
+- name: Install composer deps
+  composer:
+    command: install
+    working_dir: "{{ new_release_dir }}"
+    prefer_dist: true
+    optimize_autoloader: true
+    no_dev: true
+    no_scripts: true

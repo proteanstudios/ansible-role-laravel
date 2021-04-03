@@ -1,0 +1,9 @@
+---
+
+- name: Create new release directory
+  file:
+    path: "{{ new_release_dir }}"
+    state: directory
+    owner: "{{ deploy_user | default(ansible_user) }}"
+    group: "{{ deploy_user | default(ansible_user) }}"
+  become: true

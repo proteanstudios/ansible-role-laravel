@@ -1,0 +1,59 @@
+---
+
+# User password
+password: $EOL3Q50Yt8DbriTsqNZpWGVCSSibUVJIaS1BnCadVknfN8
+
+# Public key to copy to remote server
+public_key: ~/.ssh/id_rsa.pub
+
+# git access key place
+git_access_key_path_on_server: "~/.ssh/git_access_key" 
+
+# Domain of your site
+domain: example.com
+
+sites_path: "/usr/share/nginx"
+
+# Where site will be located
+domain_path: "{{ sites_path }}/{{ domain }}"
+
+# Where releases will be located
+releases_dir: "{{ domain_path }}/releases"
+
+# Where link to current release will be located
+current_dir: "{{ domain_path }}/current"
+
+# Where directory with persistent data will be located
+persistent_dir: "{{ domain_path }}/persistent"
+
+# Link to your git repository of your site
+repo_url: ""
+branch: "master"
+
+# Run npm
+run_npm: false
+
+# Run migrations
+migrate: true
+
+# Command to run migrations
+# Alternatives: php artisan migrate:refresh --seed
+migrate_command: php artisan migrate --force
+
+# Command to rollback migrations
+migrate_rollback_command: php artisan migrate:rollback --force
+
+# Validate your .env file
+# melihovv/laravel-env-validator should be installed in your project
+validate_env: false
+
+# Backup database before migration
+# spatie/laravel-backup should be installed in your project
+backup_db: false
+
+# Copy node_modules folder from latest release.
+copy_node_modules: true
+
+# Copy vendor folder from latest release.
+copy_vendor: true
+

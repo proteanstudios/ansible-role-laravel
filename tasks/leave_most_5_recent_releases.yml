@@ -1,0 +1,4 @@
+---
+
+- name: Remove all but the 5 most recent
+  shell: ls -dr {{ releases_dir }}/* | tail -n +6 | xargs -d "\n" rm -rf
