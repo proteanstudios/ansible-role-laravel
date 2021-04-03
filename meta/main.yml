@@ -1,3 +1,5 @@
 ---
-# dependencies:
-#   - geerlingguy.composer
+galaxy_info:
+  role_name: laravel
+  description: Install the laravel project
+  company: Pros co.,ltd
