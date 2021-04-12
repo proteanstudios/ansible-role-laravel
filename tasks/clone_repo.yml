@@ -12,9 +12,17 @@
     mode: 0400
   when: git_key.stat.exists == false or git_key.stat.isreg == false
 
-- name: Clone repo
+- name: ensure github.com is a known host
+  lineinfile:
+    dest: ~/.ssh/known_hosts
+    create: yes
+    state: present
+    line: "{{ lookup('pipe', 'ssh-keyscan -t rsa gitlab.com') }}"
+    regexp: "^gitlab\\.com"
+
+- name: "Clone repo on branch {{ branch }}"
   git:
-    key_file: "~/.ssh/git_access_key"
+    key_file: "{{ git_access_key_path_on_server }}"
     dest: "{{ new_release_dir }}"
     repo: "{{ repo_url }}"
     version: "{{ branch }}"

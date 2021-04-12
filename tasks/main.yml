@@ -23,6 +23,7 @@
   - include: tasks/link_env.yml
   - include: tasks/generate_assets.yml  
   - include: tasks/optimize_app.yml
+    when: optimize is defined and optimize == true
   - include: tasks/migrate_db.yml
   - include: tasks/bless_new_release.yml
   - include: tasks/leave_most_5_recent_releases.yml
