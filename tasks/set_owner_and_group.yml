@@ -1,5 +1,12 @@
 ---
-
-- name: Set correct folders owner and group
+- name: get correct group names to chown 
+    getent:
+      database: group
+- name: Set correct folders owner and group NGINX
   command: find "{{ dir_to_chown }}" -exec chown "{{ deploy_user | default(ansible_user) }}:nginx" {} \;
   become: true
+  when: "'nginx' in ansible_facts.getent_group"
+- name: Set correct folders owner and group WWW-DATA
+  command: find "{{ dir_to_chown }}" -exec chown "{{ deploy_user | default(ansible_user) }}:www-data" {} \;
+  become: true
+  when: "'www-data' in ansible_facts.getent_group"
