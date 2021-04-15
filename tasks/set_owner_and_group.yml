@@ -1,7 +1,7 @@
 ---
 - name: get correct group names to chown 
-    getent:
-      database: group
+  getent:
+    database: group
 - name: Set correct folders owner and group NGINX
   command: find "{{ dir_to_chown }}" -exec chown "{{ deploy_user | default(ansible_user) }}:nginx" {} \;
   become: true

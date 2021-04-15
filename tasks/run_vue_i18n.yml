@@ -1,0 +1,8 @@
+---
+
+- name: Run vue i18n
+  command: php artisan vue-i18n:generate
+  args:
+    chdir: "{{ new_release_dir }}"
+  when: run_vue_i18n is defined and run_vue_i18n == true
+
