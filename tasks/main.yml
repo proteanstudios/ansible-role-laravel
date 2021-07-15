@@ -3,9 +3,6 @@
   stat:
     path: "{{ persistent_dir }}"
   register: required_dirs
-- name: report missing directories
-  debug: 
-    msg: "required_dirs exists: {{ required_dirs.stat.exists }}"      
 - name: create release directories 
   include: tasks/setup_deploy_folder_structure.yml
   when: required_dirs.stat.exists == false or required_dirs.stat.isdir == false

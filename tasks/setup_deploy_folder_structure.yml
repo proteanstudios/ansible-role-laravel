@@ -7,6 +7,7 @@
     owner: "{{ deploy_user | default(ansible_user)  }}"
     group: "{{ deploy_user | default(ansible_user)  }}"
     mode: 0711
+  become: true
 
 - name: Create releases directory
   file:
