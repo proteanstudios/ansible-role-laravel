@@ -2,7 +2,7 @@
 
 - name: Copy .env file
   copy:
-    src: .env."{{ host | default('staging') }}"
+    src: ".env.{{ host | default('staging') }}"
     dest: "{{ persistent_dir }}/.env"
 
 - name: Link .env file
