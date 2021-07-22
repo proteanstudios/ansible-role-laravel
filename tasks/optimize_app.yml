@@ -5,11 +5,6 @@
   args:
     chdir: "{{ new_release_dir }}"
 
-- name: php artisan optimize
-  shell: php artisan optimize
-  args:
-    chdir: "{{ new_release_dir }}"
-
 - name: php artisan config:clear
   shell: php artisan config:clear
   args:
@@ -25,7 +20,12 @@
   args:
     chdir: "{{ new_release_dir }}"
 
-- name: php artisan config:cache
-  shell: php artisan config:cache
+# - name: php artisan config:cache
+#   shell: php artisan config:cache
+#   args:
+#     chdir: "{{ new_release_dir }}"
+
+- name: php artisan optimize
+  shell: php artisan optimize
   args:
     chdir: "{{ new_release_dir }}"
